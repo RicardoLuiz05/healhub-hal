@@ -1,0 +1,12 @@
+.menu-background{
+    background-color: rgb(145, 250, 168);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+.titulo{
+    color: rgb(121, 27, 184)!important;
+    font-weight: bold;
+}

@@ -1,0 +1,25 @@
+<app-header></app-header>
+<app-menu></app-menu>
+<div>
+    <mat-icon [matBadge]="diarias.length" aria-hidden="false" matBadgeColor="primary">assignment</mat-icon>
+</div>
+<div class="div-cards" fxLayout="row wrap" fxLayout.lt-sm="roll">
+    <mat-card fxFlex="20" class="card-diaria" *ngFor="let diaria of diarias">
+        <mat-card-header>
+            <mat-card-title>Dia: {{diaria.dataDia}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>copos de água: {{diaria.coposDAgua}} <br> estou me sentindo: {{diaria.emocao}}</p>
+            <p>{{diaria.adicional}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button  class="bDelet" mat-button (click)="remover(diaria)">
+                <mat-icon aria-hidden="false" class="icons-card">delete</mat-icon>
+            </button>
+            <button class="bEdit" mat-button (click)="editar(diaria)">
+                <mat-icon aria-hidden="false" class="icons-card">create</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<app-footer></app-footer>

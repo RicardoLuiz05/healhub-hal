@@ -1,0 +1,13 @@
+#onda-roxa, #onda-verde {
+    width: 100%;
+}
+
+#onda-verde {
+    margin-top: -20%;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

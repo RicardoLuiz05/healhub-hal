@@ -1,0 +1,27 @@
+<app-header></app-header>
+<app-menu></app-menu>
+<div>
+    <mat-card class="card-cadastro">
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="diaria.dataDia" placeholder="Data">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="diaria.emocao" placeholder="Como está se sentindo">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="diaria.coposDAgua" placeholder="Quantos copos tomou">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="diaria.exercicios" placeholder="Quais exercicios fez">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="diaria.adicional" placeholder="Adicionais">
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="inserirDiaria()" routerLink="/telaprincipal/listagemdiaria">{{botaonome}}</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<app-footer></app-footer>
