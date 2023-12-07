@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Diaria} from "../../shared/modelo/diaria";
 import {DiariaService} from '../../shared/services/diaria.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-listagem-diaria',
@@ -11,8 +14,10 @@ import {Router} from '@angular/router';
 export class ListagemDiariaComponent implements OnInit {
 
   diarias: Array<Diaria> = [];
+  mensagemSanckBar: string = 'Diária removida com sucesso! 😢💔';
+  durationInSeconds: number = 5;
 
-  constructor(private diariaService: DiariaService, private roteador: Router) {
+  constructor(private _snackBar: MatSnackBar, private diariaService: DiariaService, private rotaAtual: ActivatedRoute, private roteador: Router) {
   }
 
   ngOnInit(): void {
@@ -34,6 +39,10 @@ export class ListagemDiariaComponent implements OnInit {
           if (indxDiariaARemover > -1) {
             this.diarias.splice(indxDiariaARemover, 1);
           }
+          this._snackBar.openFromComponent(SnackBarComponent, {
+            data: { mensagem: this.mensagemSanckBar },
+            duration: this.durationInSeconds * 1000
+          })
         }
       );
     } else {
@@ -42,3 +51,4 @@ export class ListagemDiariaComponent implements OnInit {
   }
 
 }
+

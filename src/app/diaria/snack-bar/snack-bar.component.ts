@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { MatSnackBarRef } from '@angular/material/snack-bar';
+import { Component, Inject } from '@angular/core';
+import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-snack-bar',
@@ -7,5 +7,12 @@ import { MatSnackBarRef } from '@angular/material/snack-bar';
   styleUrls: ['./snack-bar.component.css']
 })
 export class SnackBarComponent {
-  snackBarRef = inject(MatSnackBarRef);
+  constructor(
+    public snackBarRef: MatSnackBarRef<SnackBarComponent>,
+    @Inject(MAT_SNACK_BAR_DATA) public data: { mensagem: string }
+  ) {}
+
+  get mensagem(): string {
+    return this.data?.mensagem || '';
+  }
 }
