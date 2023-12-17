@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {Diaria } from 'src/app/shared/modelo/diaria';
+import { Usuario } from 'src/app/shared/modelo/usuario';
+import { AuthenService } from 'src/app/shared/services/authen.service';
 
 @Component({
     selector: 'app-login',
@@ -8,17 +9,13 @@ import {Diaria } from 'src/app/shared/modelo/diaria';
 })
 export class LoginComponent {
     hide = true;
+    usuario: Usuario = { nome: '', senha: '' } as Usuario;
 
-    usuario: Diaria;
-
-    constructor() {
-        this.usuario = new Diaria();
+    constructor(private authenService: AuthenService) {
     }
 
-    check() {
-        if (this.usuario.dataDia == '' || this.usuario.emocao == '') {
-            
-        }
+    login():void {
+        this.authenService.login(this.usuario.nome, this.usuario.senha);
     }
 
 }

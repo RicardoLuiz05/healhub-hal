@@ -7,32 +7,42 @@ import { TabelaComponent } from './diaria/tabela/tabela.component';
 import { TelaPrincipalComponent } from './layout/tela-principal/tela-principal.component';
 import { LoginComponent } from './layout/login/login.component';
 import { InicioComponent } from './diaria/inicio/inicio.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
     path: 'telaprincipal/cadastrodiaria',
-    component: CadastroDiariaComponent
+    component: CadastroDiariaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'telaprincipal/editadiaria/:id',
-    component: CadastroDiariaComponent
+    component: CadastroDiariaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'telaprincipal/listagemdiaria',
-    component: ListagemDiariaComponent
+    component: ListagemDiariaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'telaprincipal/tabeladiaria',
-    component: TabelaComponent
+    component: TabelaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'telaprincipal',
-    component: TelaPrincipalComponent
+    component: TelaPrincipalComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '',
-    component: LoginComponent
-  }
+    redirectTo: '/login',
+    pathMatch: 'full'}
 ];
 
 @NgModule({

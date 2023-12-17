@@ -17,10 +17,12 @@ import {LayoutModule} from './layout/layout.module';
 import { DiariaModule } from './diaria/diaria.module';
 import { DecorationsModule } from './decorations/decorations.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MetasComponent } from './metas/metas.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MetasComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutModule,
     DiariaModule,
     DecorationsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -36,19 +36,17 @@
   "usuarios": [
     {
       "id": 1,
-      "user": "Bernardo",
+      "nome": "Bernardo",
       "senha": "BBardo1203",
-      "phone": "03958493",
-      "email": "Bernardo@gmail.com",
-      "foto": ""
+      "coposDAgua": 1,
+      "metros": 200
     },
     {
       "id": 2,
-      "user": "Bela",
+      "nome": "Bela",
       "senha": "BBardo1203",
-      "phone": "0395849303",
-      "email": "Bero@gmail.com",
-      "foto": ""
+      "coposDAgua": 10,
+      "metros": 10000
     }
   ]
 }
