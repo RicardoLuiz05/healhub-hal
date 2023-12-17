@@ -1,0 +1,54 @@
+{
+  "diarias": [
+    {
+      "id": 1,
+      "dataDia": "20/10/2023",
+      "emocao": "feliz",
+      "coposDAgua": 0,
+      "exercicios": "caminhada 20 min",
+      "adicional": "Estudos em dia"
+    },
+    {
+      "id": 4,
+      "dataDia": "20/10/2003",
+      "emocao": "Feliz",
+      "coposDAgua": 4,
+      "exercicios": "correr",
+      "adicional": ""
+    },
+    {
+      "id": 5,
+      "dataDia": "13/03/2024",
+      "emocao": "normal",
+      "coposDAgua": 0,
+      "exercicios": "corrida",
+      "adicional": "tomei vitâmina"
+    },
+    {
+      "id": 6,
+      "dataDia": "14/03/2024",
+      "emocao": "bem",
+      "coposDAgua": 0,
+      "exercicios": "vôlei",
+      "adicional": "estudei"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "user": "Bernardo",
+      "senha": "BBardo1203",
+      "phone": "03958493",
+      "email": "Bernardo@gmail.com",
+      "foto": ""
+    },
+    {
+      "id": 2,
+      "user": "Bela",
+      "senha": "BBardo1203",
+      "phone": "0395849303",
+      "email": "Bero@gmail.com",
+      "foto": ""
+    }
+  ]
+}

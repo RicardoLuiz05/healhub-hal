@@ -26,7 +26,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DiariaService } from '../shared/services/diaria.service';
 
-import { FirestoreModule } from '../firestore/firestore.module';
 
 @NgModule({
   declarations: [
@@ -59,8 +58,7 @@ import { FirestoreModule } from '../firestore/firestore.module';
     MatTableModule,
     DecorationsModule,
     MatGridListModule,
-    MatProgressBarModule,
-    FirestoreModule
+    MatProgressBarModule
   ],
   providers: [
     DiariaService

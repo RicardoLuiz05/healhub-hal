@@ -34,9 +34,9 @@ export class TabelaComponent implements AfterViewInit {
 }
 
 export interface Diaria {
-  id?: string;
+  id: Number;
   dataDia: string;
-  coposDAgua: string;
+  coposDAgua: Number;
   exercicios: string;
 }
 

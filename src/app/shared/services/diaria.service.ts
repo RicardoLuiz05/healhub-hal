@@ -1,49 +1,38 @@
+
 import {Injectable} from '@angular/core';
 import {Diaria} from '../modelo/diaria';
-
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import {from, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class DiariaService {
 
-  colecaoDiarias: AngularFirestoreCollection<Diaria>;
-  NOME_COLECAO = 'diarias';
 
-  constructor(private afs: AngularFirestore) {
-    this.colecaoDiarias = afs.collection(this.NOME_COLECAO);
+  // URL_DIARIAS = 'http://localhost:8081/diarias';
+  URL_DIARIAS = 'http://localhost:3000/diarias';
+
+  constructor(private httpClient: HttpClient) {
   }
 
   listar(): Observable<Diaria[]> {
-    return this.colecaoDiarias.valueChanges({idField: 'id'});
+    return this.httpClient.get<Diaria[]>(this.URL_DIARIAS);
   }
 
-  inserir(diaria: Diaria): Observable<object> {
-    delete diaria.id;
-    return from(this.colecaoDiarias.add(Object.assign({}, diaria)))
+  inserir(diaria: Diaria): Observable<Diaria> {
+    return this.httpClient.post<Diaria>(this.URL_DIARIAS, diaria);
   }
 
-  remover(id: string): Observable<void> {
-    return from(this.colecaoDiarias.doc(id).delete());
+  remover(id: number): Observable<object> {
+    return this.httpClient.delete(`${this.URL_DIARIAS}/${id}`);
   }
 
-  pesquisarPorId(id: string): Observable<Diaria> {
-    return this.colecaoDiarias.doc(id).get().pipe(
-      map(document => {
-        const data = document.data() as Diaria;
-        return { ...data, id };
-      })
-    );
+  pesquisarPorId(id: number): Observable<Diaria> {
+    return this.httpClient.get<Diaria>(`${this.URL_DIARIAS}/${id}`);
   }
-  
 
-  atualizar(diaria: Diaria): Observable<void> {
-    const id = diaria.id;
-    delete diaria.id;
-    return from(this.colecaoDiarias.doc(id).update(Object.assign({}, diaria)))
+  atualizar(diaria: Diaria): Observable<Diaria> {
+    return this.httpClient.put<Diaria>(`${this.URL_DIARIAS}/${diaria.id}`, diaria);
   }
 }

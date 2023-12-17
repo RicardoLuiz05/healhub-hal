@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 import { Observable } from 'rxjs';
+import { getLocaleNumberFormat } from '@angular/common';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class CadastroDiariaComponent implements OnInit {
       this.operacaoCadastro = false;
       this.botaonome = 'Editar';
       this.mensagemSnackBar= "O seu dia foi editado!! 😊💜";
-      const idParaEdicao = String(this.rotalAtual.snapshot.paramMap.get('id'));
+      const idParaEdicao = Number(this.rotalAtual.snapshot.paramMap.get('id'));
 
       this.diariaService.pesquisarPorId(idParaEdicao).subscribe(
         diariaRetornada => this.diaria = diariaRetornada
