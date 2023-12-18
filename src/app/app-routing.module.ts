@@ -8,6 +8,7 @@ import { TelaPrincipalComponent } from './layout/tela-principal/tela-principal.c
 import { LoginComponent } from './layout/login/login.component';
 import { InicioComponent } from './diaria/inicio/inicio.component';
 import { AuthGuard } from './auth.guard';
+import { ConfiguracaoUsuarioComponent } from './usuario/configuracao-usuario/configuracao-usuario.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: 'telaprincipal',
     component: TelaPrincipalComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'telaprincipal/configuracao',
+    component: ConfiguracaoUsuarioComponent,
     canActivate: [AuthGuard]
   },
   {

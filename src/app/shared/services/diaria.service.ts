@@ -35,4 +35,11 @@ export class DiariaService {
   atualizar(diaria: Diaria): Observable<Diaria> {
     return this.httpClient.put<Diaria>(`${this.URL_DIARIAS}/${diaria.id}`, diaria);
   }
+
+  associarUsuario(diariaId: number, usuarioId: number): Observable<Diaria> {
+    const url = `${this.URL_DIARIAS}/${diariaId}/associarUsuario/${usuarioId}`;
+    return this.httpClient.put<Diaria>(url, {});
+  }
+  
+  
 }

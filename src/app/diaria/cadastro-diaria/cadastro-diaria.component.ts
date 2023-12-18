@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 import { Observable } from 'rxjs';
 import { getLocaleNumberFormat } from '@angular/common';
+import { UsuarioService } from 'src/app/shared/services/usuario.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class CadastroDiariaComponent implements OnInit {
   operacaoCadastro = true;
   mensagemSnackBar: string = "O seu dia foi cadastrado!! 😊💜";
 
-  constructor( private _snackBar: MatSnackBar, private diariaService: DiariaService, private rotalAtual: ActivatedRoute, private roteador: Router){
+  constructor( private _snackBar: MatSnackBar, private diariaService: DiariaService, private rotalAtual: ActivatedRoute, private roteador: Router, private usuarioService: UsuarioService){
     this.diaria = new Diaria();
     this.carregarDiarias();
     if (this.rotalAtual.snapshot.paramMap.has('id')) {
@@ -63,6 +64,7 @@ export class CadastroDiariaComponent implements OnInit {
       });
       return; 
     }
+      // this.diaria.usuario = this.usuarioService.getUsuarioAtual();
       operacao = this.diariaService.inserir(this.diaria);
     }
     this.roteador.navigate(['/telaprincipal/listagemdiaria']);

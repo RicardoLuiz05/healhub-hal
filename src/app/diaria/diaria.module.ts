@@ -25,6 +25,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DiariaService } from '../shared/services/diaria.service';
+import { CompartilharDiariaComponent } from './compartilhar-diaria/compartilhar-diaria.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { DiariaService } from '../shared/services/diaria.service';
     SnackBarComponent,
     TabelaComponent,
     InicioComponent,
+    CompartilharDiariaComponent,
 
   ],
   exports:[
@@ -58,7 +61,9 @@ import { DiariaService } from '../shared/services/diaria.service';
     MatTableModule,
     DecorationsModule,
     MatGridListModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [
     DiariaService

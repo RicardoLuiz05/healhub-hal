@@ -4,7 +4,9 @@
     <mat-icon [matBadge]="diarias.length" aria-hidden="false" matBadgeColor="primary">assignment</mat-icon>
 </div>
 <div class="div-cards" fxLayout="row wrap" fxLayout.lt-sm="roll">
+    
     <mat-card fxFlex="20" class="card-diaria" *ngFor="let diaria of diarias">
+        <button (click)="click()">
         <mat-card-header>
             <mat-card-title>Dia: {{diaria.dataDia}}</mat-card-title>
         </mat-card-header>
@@ -20,6 +22,9 @@
                 <mat-icon aria-hidden="false" class="icons-card">create</mat-icon>
             </button>
         </mat-card-actions>
+    </button>
     </mat-card>
+    
 </div>
+
 <app-footer></app-footer>

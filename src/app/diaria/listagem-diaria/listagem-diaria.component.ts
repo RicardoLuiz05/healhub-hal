@@ -6,6 +6,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
+import { MatButtonModule } from '@angular/material/button';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+
+import { CompartilharDiariaComponent } from '../compartilhar-diaria/compartilhar-diaria.component';
+
 @Component({
   selector: 'app-listagem-diaria',
   templateUrl: './listagem-diaria.component.html',
@@ -17,7 +22,7 @@ export class ListagemDiariaComponent implements OnInit {
   mensagemSanckBar: string = 'Diária removida com sucesso! 😢💔';
   durationInSeconds: number = 5;
 
-  constructor(private _snackBar: MatSnackBar, private diariaService: DiariaService, private rotaAtual: ActivatedRoute, private roteador: Router) {
+  constructor(private _snackBar: MatSnackBar, private diariaService: DiariaService, private rotaAtual: ActivatedRoute, private roteador: Router, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -28,6 +33,14 @@ export class ListagemDiariaComponent implements OnInit {
 
   editar(diaria: Diaria): void {
     this.roteador.navigate(['telaprincipal/editadiaria', diaria.id]);
+  }
+
+  click(): void{
+    const dialogRef = this.dialog.open(CompartilharDiariaComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   remover(diaria: Diaria): void {

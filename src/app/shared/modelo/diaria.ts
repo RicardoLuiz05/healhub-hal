@@ -1,3 +1,5 @@
+import { Usuario } from "./usuario";
+
 export class Diaria {
 
   id: number = 0;
@@ -6,5 +8,6 @@ export class Diaria {
   coposDAgua: number = 0;
   exercicios: string = '';
   adicional?: string = '';
+  usuario: Usuario = new Usuario();
 
 }

@@ -8,12 +8,21 @@ import { UsuarioService } from './usuario.service';
 })
 export class AuthenService {
   private isAuthenticated = false;
-  private usuarios: Usuario[] = [];
 
   constructor(private router: Router, private usuarioService: UsuarioService) {
+  }
+
+  login(nome: string, senha: string): void {
     this.usuarioService.listar().subscribe(
       (usuarios: Usuario[]) => {
-        this.usuarios = usuarios;
+        const usuario = usuarios.find(u => u.nome === nome);
+
+        if (usuario && usuario.senha === senha) {
+          this.isAuthenticated = true;
+          this.router.navigate(['/telaprincipal']);
+        } else {
+          console.log("Erro nas credenciais");
+        }
       },
       error => {
         console.log("Erro ao obter lista de usuários:", error);
@@ -21,20 +30,6 @@ export class AuthenService {
     );
   }
 
-  login(nome: string, senha: string): void {
-    const usuario = this.usuarios.find(u => u.nome === nome);
-
-    if (usuario) {
-      if (usuario.senha === senha) {
-        this.isAuthenticated = true;
-        this.router.navigate(['/telaprincipal']);
-      } else {
-        console.log("Erro na senha");
-      }
-    } else {
-      console.log("Erro no usuário");
-    }
-  }
 
   logout(): void {
     this.isAuthenticated = false;
@@ -44,4 +39,5 @@ export class AuthenService {
   isAuthenticatedUser(): boolean {
     return this.isAuthenticated;
   }
-}
+
+ }

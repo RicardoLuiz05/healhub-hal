@@ -6,31 +6,46 @@
       "emocao": "feliz",
       "coposDAgua": 0,
       "exercicios": "caminhada 20 min",
-      "adicional": "Estudos em dia"
+      "adicional": "Estudos em dia",
+      "usuario": {
+        "id": 1,
+        "nome": "Bernardo",
+        "senha": "BBardo1203",
+        "metaDAgua": 1,
+        "metros": 200
+      }
     },
     {
-      "id": 4,
-      "dataDia": "20/10/2003",
-      "emocao": "Feliz",
-      "coposDAgua": 4,
-      "exercicios": "correr",
-      "adicional": ""
-    },
-    {
-      "id": 5,
-      "dataDia": "13/03/2024",
-      "emocao": "normal",
+      "id": 2,
+      "dataDia": "10/10/2023",
+      "emocao": "",
       "coposDAgua": 0,
-      "exercicios": "corrida",
-      "adicional": "tomei vitâmina"
+      "exercicios": "",
+      "adicional": "",
+      "usuario": {
+        "id": 0,
+        "nome": "",
+        "senha": "",
+        "metaDAgua": 0,
+        "metros": 0,
+        "diarias": []
+      }
     },
     {
-      "id": 6,
-      "dataDia": "14/03/2024",
-      "emocao": "bem",
+      "id": 3,
+      "dataDia": "10/20/2023",
+      "emocao": "",
       "coposDAgua": 0,
-      "exercicios": "vôlei",
-      "adicional": "estudei"
+      "exercicios": "",
+      "adicional": "",
+      "usuario": {
+        "id": 0,
+        "nome": "",
+        "senha": "",
+        "metaDAgua": 0,
+        "metros": 0,
+        "diarias": []
+      }
     }
   ],
   "usuarios": [
@@ -38,14 +53,14 @@
       "id": 1,
       "nome": "Bernardo",
       "senha": "BBardo1203",
-      "coposDAgua": 1,
+      "metaDAgua": 1,
       "metros": 200
     },
     {
       "id": 2,
       "nome": "Bela",
       "senha": "BBardo1203",
-      "coposDAgua": 10,
+      "metaDAgua": 10,
       "metros": 10000
     }
   ]
