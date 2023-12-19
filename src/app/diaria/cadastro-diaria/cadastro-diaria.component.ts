@@ -65,7 +65,8 @@ export class CadastroDiariaComponent implements OnInit {
       return; 
     }
       console.log(this.diaria);
-      operacao = this.diariaService.inserir(this.diaria);
+      operacao = this.diariaService.inserir(this.diaria, this.guardianUserService.getUsario());
+      console.log(this.diaria);
       
     }
 
@@ -73,7 +74,7 @@ export class CadastroDiariaComponent implements OnInit {
     operacao.subscribe(
       () => {
         this.roteador.navigate(['/telaprincipal/listagemdiaria']);
-        this.diariaService.associarUsuarioDiaria(this.diaria.id, this.guardianUserService.getUsario());
+        console.log(this.diaria)
         this._snackBar.openFromComponent(SnackBarComponent, {
           data: {mensagem: this.mensagemSnackBar},
           duration: this.durationInSeconds * 1000

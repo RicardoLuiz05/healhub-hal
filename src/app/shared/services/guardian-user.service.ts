@@ -9,7 +9,7 @@ import { UsuarioService } from './usuario.service';
 export class GuardianUserService {
   private usario:Usuario;
   constructor(private http:UsuarioService) {
-    this.usario = new Usuario();
+    this.usario = new Usuario('','','',0,0);
     
   }
 

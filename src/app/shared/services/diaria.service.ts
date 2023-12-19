@@ -1,8 +1,7 @@
-
-import {Injectable} from '@angular/core';
-import {Diaria} from '../modelo/diaria';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Diaria } from '../modelo/diaria';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Usuario } from '../modelo/usuario';
 
 @Injectable({
@@ -10,9 +9,7 @@ import { Usuario } from '../modelo/usuario';
 })
 export class DiariaService {
 
-
   URL_DIARIAS = 'http://localhost:8081/diarias';
-  // URL_DIARIAS = 'http://localhost:3000/diarias';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -21,8 +18,8 @@ export class DiariaService {
     return this.httpClient.get<Diaria[]>(this.URL_DIARIAS);
   }
 
-  inserir(diaria: Diaria): Observable<Diaria> {
-    return this.httpClient.post<Diaria>(this.URL_DIARIAS, diaria);
+  inserir(diaria: Diaria, usuario: Usuario): Observable<Diaria> {
+    return this.httpClient.post<Diaria>(`${this.URL_DIARIAS}`, { diaria, usuario });
   }
 
   remover(id: number): Observable<object> {
@@ -38,10 +35,7 @@ export class DiariaService {
   }
 
   associarUsuarioDiaria(diariaId: number, usuario: Usuario): Observable<any> {
-    console.log(usuario.id);
     const url = `${this.URL_DIARIAS}/${diariaId}/usuario`;
     return this.httpClient.post(url, usuario);
   }
-  
-  
 }

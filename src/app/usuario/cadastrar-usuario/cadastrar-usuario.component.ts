@@ -20,7 +20,7 @@ export class CadastrarUsuarioComponent implements OnInit {
   mensagemSnackBar: string = "Bem-vindo à familia HealHube! 😊💜";
 
   constructor( private _snackBar: MatSnackBar, private usuarioService: UsuarioService, private roteador: Router){
-    this.usuario = new Usuario();
+    this.usuario = new Usuario('','','',0,0);
     this.carregarUsuarios();
   }
 
