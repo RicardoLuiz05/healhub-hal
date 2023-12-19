@@ -13,11 +13,11 @@ export class GuardianUserService {
     
   }
 
-  setUsario(usuario: Usuario){
+  setUsuario(usuario: Usuario){
     this.usario = usuario;
   }
 
-  getUsario():Usuario{
+  getUsuario():Usuario{
     return this.usario
   }
 }

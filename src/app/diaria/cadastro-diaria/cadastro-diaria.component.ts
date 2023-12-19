@@ -65,7 +65,7 @@ export class CadastroDiariaComponent implements OnInit {
       return; 
     }
       console.log(this.diaria);
-      operacao = this.diariaService.inserir(this.diaria, this.guardianUserService.getUsario());
+      operacao = this.diariaService.inserir(this.diaria, this.guardianUserService.getUsuario());
       console.log(this.diaria);
       
     }

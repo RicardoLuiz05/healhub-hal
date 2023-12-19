@@ -1,19 +1,22 @@
 <app-header></app-header>
 <app-menu></app-menu>
 
-<mat-card-content>
-    <mat-form-field appearance="fill">
+<mat-card>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
         <input matInput [(ngModel)]="usuario.metaDAgua" placeholder="Mudar meus copos">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
         <input matInput [(ngModel)]="usuario.metros" placeholder="Mudar meus metros">
-    </mat-form-field>
-</mat-card-content>
-<mat-card-actions>
-    <button mat-raised-button color="primary" (click)="" >Salvar</button>
-    <button mat-raised-button color="primary" routerLink="/login" >Apagar conta</button>
-</mat-card-actions>
-
-<button (click)="deslogar()">Sair <mat-icon>exit_to_app</mat-icon></button>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="atualizar()">Salvar</button>
+      <button mat-raised-button color="primary" routerLink="/login">Apagar conta</button>
+    </mat-card-actions>
+  </mat-card>
+  
+  <button (click)="deslogar()">Sair <mat-icon>exit_to_app</mat-icon></button>
+  
 
 <app-footer></app-footer>

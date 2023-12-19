@@ -19,9 +19,8 @@ export class AuthenService {
         const usuario = usuarios.find(u => u.nome === nome);
 
         if (usuario && usuario.senha === senha) {
-          this.guardianUserService.setUsario(usuario);
+          this.guardianUserService.setUsuario(usuario);
           this.isAuthenticated = true;
-          console.log(this.guardianUserService.getUsario())
           this.router.navigate(['/telaprincipal']);
         } else {
           console.log("Erro nas credenciais");
