@@ -40,7 +40,7 @@ export class DiariaService {
   associarUsuarioDiaria(diariaId: number, usuario: Usuario): Observable<any> {
     console.log(usuario.id);
     const url = `${this.URL_DIARIAS}/${diariaId}/usuario`;
-    // return this.httpClient.post<Diaria>(url, usuario);
+    return this.httpClient.post(url, usuario);
   }
   
   
