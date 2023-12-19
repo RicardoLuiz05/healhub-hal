@@ -9,6 +9,7 @@ import { LoginComponent } from './layout/login/login.component';
 import { InicioComponent } from './diaria/inicio/inicio.component';
 import { AuthGuard } from './auth.guard';
 import { ConfiguracaoUsuarioComponent } from './usuario/configuracao-usuario/configuracao-usuario.component';
+import { CadastrarUsuarioComponent } from './usuario/cadastrar-usuario/cadastrar-usuario.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'login/cadastro',
+    component: CadastrarUsuarioComponent
   },
   {
     path: '',

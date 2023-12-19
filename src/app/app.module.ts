@@ -18,6 +18,7 @@ import { DiariaModule } from './diaria/diaria.module';
 import { DecorationsModule } from './decorations/decorations.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MetasComponent } from './metas/metas.component';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MetasComponent } from './metas/metas.component';
     DiariaModule,
     DecorationsModule,
     HttpClientModule,
+    UsuarioModule
     
   ],
   providers: [],

@@ -5,8 +5,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 import { Observable } from 'rxjs';
-import { getLocaleNumberFormat } from '@angular/common';
 import { UsuarioService } from 'src/app/shared/services/usuario.service';
+import { GuardianUserService } from 'src/app/shared/services/guardian-user.service';
 
 
 @Component({
@@ -20,12 +20,12 @@ export class CadastroDiariaComponent implements OnInit {
   durationInSeconds: number = 5;
   botaonome: string = 'Cadastrar';
   diarias: Diaria[] = [];
-
+  
 
   operacaoCadastro = true;
   mensagemSnackBar: string = "O seu dia foi cadastrado!! 😊💜";
 
-  constructor( private _snackBar: MatSnackBar, private diariaService: DiariaService, private rotalAtual: ActivatedRoute, private roteador: Router, private usuarioService: UsuarioService){
+  constructor( private _snackBar: MatSnackBar, private diariaService: DiariaService, private rotalAtual: ActivatedRoute, private roteador: Router, private guardianUserService: GuardianUserService){
     this.diaria = new Diaria();
     this.carregarDiarias();
     if (this.rotalAtual.snapshot.paramMap.has('id')) {
@@ -56,7 +56,7 @@ export class CadastroDiariaComponent implements OnInit {
       operacao = this.diariaService.atualizar(this.diaria);
     } else {
     const diariaExistente = this.diarias.find(d => d.dataDia === this.diaria.dataDia);
-
+    
     if (diariaExistente) {
       this._snackBar.openFromComponent(SnackBarComponent, {
         data: { mensagem: 'Já existe um registro com esta data!! 🤡🤍' },
@@ -64,13 +64,16 @@ export class CadastroDiariaComponent implements OnInit {
       });
       return; 
     }
-      // this.diaria.usuario = this.usuarioService.getUsuarioAtual();
+      console.log(this.diaria);
       operacao = this.diariaService.inserir(this.diaria);
+      
     }
-    this.roteador.navigate(['/telaprincipal/listagemdiaria']);
+
   
     operacao.subscribe(
       () => {
+        this.roteador.navigate(['/telaprincipal/listagemdiaria']);
+        this.diariaService.associarUsuarioDiaria(this.diaria.id, this.guardianUserService.getUsario());
         this._snackBar.openFromComponent(SnackBarComponent, {
           data: {mensagem: this.mensagemSnackBar},
           duration: this.durationInSeconds * 1000

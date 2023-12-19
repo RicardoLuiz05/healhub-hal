@@ -6,6 +6,9 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario.component';
 import { ConfiguracaoUsuarioComponent } from './configuracao-usuario/configuracao-usuario.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +23,10 @@ import { ConfiguracaoUsuarioComponent } from './configuracao-usuario/configuraca
     CommonModule,
     MatIconModule,
     MatButtonModule,
-    DecorationsModule
+    DecorationsModule,
+    MatFormFieldModule,
+    MatCardModule,
+    FormsModule
   ]
 })
 export class UsuarioModule { }
