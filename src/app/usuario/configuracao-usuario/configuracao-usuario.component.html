@@ -1,5 +1,5 @@
 <div>
-    <mat-card class="card-configs">
+    <mat-card class="card-configs" [ngStyle]="{'display': this.isVisible ? 'block' : 'none'}">
         <mat-card-header>
             <mat-icon class="foto">person</mat-icon>
             <mat-card-title>Olá, {{usuario.nome}}!</mat-card-title>
@@ -18,7 +18,7 @@
         <p class="line"></p>
         <mat-card-actions>
             <button mat-raised-button class="botao-roxo" routerLink="/telaprincipal/metas">GERENCIAR METAS <mat-icon class="icon-button">dns</mat-icon></button>
-            <button mat-raised-button class="botao-roxo">SAIR <mat-icon class="icon-button">exit_to_app</mat-icon></button>
+            <button mat-raised-button class="botao-roxo" (click)="deslogar()">SAIR <mat-icon class="icon-button">exit_to_app</mat-icon></button>
             <button mat-raised-button class="botao-vermelho">APAGAR CONTA <mat-icon class="icon-button">delete_forever</mat-icon></button>
         </mat-card-actions>
     </mat-card>

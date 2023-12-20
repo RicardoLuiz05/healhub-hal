@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import {RouterLink} from '@angular/router';
 
 import { ConfiguracaoUsuarioComponent } from './configuracao-usuario/configuracao-usuario.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,7 +21,8 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatCardModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    RouterLink
   ],
   exports: [
     ConfiguracaoUsuarioComponent

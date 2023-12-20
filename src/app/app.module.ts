@@ -18,10 +18,11 @@ import { DiariaModule } from './diaria/diaria.module';
 import { DecorationsModule } from './decorations/decorations.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuarioModule } from './usuario/usuario.module';
+import { InterceptorsModule } from './interceptors/interceptors.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,9 @@ import { UsuarioModule } from './usuario/usuario.module';
     DiariaModule,
     DecorationsModule,
     HttpClientModule,
-    UsuarioModule
+    UsuarioModule,
+    InterceptorsModule
+
     
   ],
   providers: [],

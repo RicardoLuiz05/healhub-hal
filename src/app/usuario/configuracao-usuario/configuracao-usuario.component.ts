@@ -14,6 +14,7 @@ import { UsuarioService } from 'src/app/shared/services/usuario.service';
   styleUrls: ['./configuracao-usuario.component.css']
 })
 export class ConfiguracaoUsuarioComponent {
+  isVisible = true
   hide = true;
   usuario: Usuario;
   durationInSeconds: number = 5;
