@@ -20,6 +20,7 @@
 .content-login {
     display: flex;
     flex-direction: column;
+    width: 80%;
 }
 
 .header-login {
@@ -42,7 +43,7 @@
 }
 
 .field-login {
-    width: 400px;
+    width: 100%;
 }
 
 .button-login {

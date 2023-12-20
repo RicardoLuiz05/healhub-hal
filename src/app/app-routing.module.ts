@@ -6,15 +6,19 @@ import { ListagemDiariaComponent } from './diaria/listagem-diaria/listagem-diari
 import { TabelaComponent } from './diaria/tabela/tabela.component';
 import { TelaPrincipalComponent } from './layout/tela-principal/tela-principal.component';
 import { LoginComponent } from './layout/login/login.component';
-import { InicioComponent } from './diaria/inicio/inicio.component';
 import { AuthGuard } from './auth.guard';
 import { ConfiguracaoUsuarioComponent } from './usuario/configuracao-usuario/configuracao-usuario.component';
-import { CadastrarUsuarioComponent } from './usuario/cadastrar-usuario/cadastrar-usuario.component';
+import {MetasComponent} from './layout/metas/metas.component'
 
 const routes: Routes = [
   {
     path: 'telaprincipal/cadastrodiaria',
     component: CadastroDiariaComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'telaprincipal/metas',
+    component: MetasComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -47,13 +51,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'login/cadastro',
-    component: CadastrarUsuarioComponent
-  },
-  {
     path: '',
     redirectTo: '/login',
-    pathMatch: 'full'}
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

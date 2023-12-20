@@ -3,8 +3,13 @@
     <mat-menu #menu="matMenu">
         <button routerLink="/telaprincipal/cadastrodiaria" mat-menu-item>Cadastrar meu dia</button>
         <button routerLink="/telaprincipal/listagemdiaria" mat-menu-item>Meu Diário</button>
-        <button routerLink="/telaprincipal" mat-menu-item>Minhas metas</button>
+        <!-- <button routerLink="/telaprincipal" mat-menu-item>Minhas metas</button> -->
         <button routerLink="/telaprincipal/tabeladiaria" mat-menu-item>Histórico</button>
-        <button routerLink="/telaprincipal/configuracao" mat-menu-item>Configurações</button>
+        <!-- <button routerLink="/telaprincipal/configuracao" mat-menu-item>Configurações</button> -->
+        
     </mat-menu>
+    <button mat-button>
+        <mat-icon>account_circle</mat-icon>
+    </button>
 </div>
+<app-configuracao-usuario #meuComponente></app-configuracao-usuario>

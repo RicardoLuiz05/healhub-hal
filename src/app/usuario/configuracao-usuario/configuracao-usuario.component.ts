@@ -14,6 +14,7 @@ import { UsuarioService } from 'src/app/shared/services/usuario.service';
   styleUrls: ['./configuracao-usuario.component.css']
 })
 export class ConfiguracaoUsuarioComponent {
+  hide = true;
   usuario: Usuario;
   durationInSeconds: number = 5;
   mensagemSnackBar: string = "Metas atualizadas! 😊💜";
@@ -22,7 +23,8 @@ export class ConfiguracaoUsuarioComponent {
       private authenService: AuthenService,
       private _snackBar: MatSnackBar,
       private usuarioService: UsuarioService,
-      private guardianUserService: GuardianUserService) {
+      private guardianUserService: GuardianUserService
+      ) {
 
     this.usuario = this.guardianUserService.getUsuario();
   }

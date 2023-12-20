@@ -6,7 +6,6 @@
 <div class="div-cards" fxLayout="row wrap" fxLayout.lt-sm="roll">
     
     <mat-card fxFlex="20" class="card-diaria" *ngFor="let diaria of diarias">
-        <button (click)="click()">
         <mat-card-header>
             <mat-card-title>Dia: {{diaria.dataDia}}</mat-card-title>
         </mat-card-header>
@@ -15,14 +14,16 @@
             <p>{{diaria.adicional}}</p>
         </mat-card-content>
         <mat-card-actions>
-            <button  class="bDelet" mat-button (click)="remover(diaria)">
-                <mat-icon aria-hidden="false" class="icons-card">delete</mat-icon>
-            </button>
             <button class="bEdit" mat-button (click)="editar(diaria)">
                 <mat-icon aria-hidden="false" class="icons-card">create</mat-icon>
             </button>
+            <button class="bShare" mat-button (click)="click()">
+                <mat-icon aria-hidden="false" class="icons-card">share</mat-icon>
+            </button>
+            <button  class="bDelet" mat-button (click)="remover(diaria)">
+                <mat-icon aria-hidden="false" class="icons-card">delete</mat-icon>
+            </button>
         </mat-card-actions>
-    </button>
     </mat-card>
     
 </div>

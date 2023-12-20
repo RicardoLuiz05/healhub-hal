@@ -15,11 +15,13 @@ import { TelaPrincipalComponent } from './tela-principal/tela-principal.componen
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { DecorationsModule } from '../decorations/decorations.module';
+import { MetasComponent } from './metas/metas.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    TelaPrincipalComponent
+    TelaPrincipalComponent,
+    MetasComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { DecorationsModule } from '../decorations/decorations.module';
   ],
   exports: [
     LoginComponent,
-    TelaPrincipalComponent
+    TelaPrincipalComponent,
+    MetasComponent
   ]
 })
 export class LayoutModule { }

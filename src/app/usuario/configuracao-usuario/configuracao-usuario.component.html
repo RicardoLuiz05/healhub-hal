@@ -1,22 +1,25 @@
-<app-header></app-header>
-<app-menu></app-menu>
-
-<mat-card>
-    <mat-card-content>
-      <mat-form-field appearance="fill">
-        <input matInput [(ngModel)]="usuario.metaDAgua" placeholder="Mudar meus copos">
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <input matInput [(ngModel)]="usuario.metros" placeholder="Mudar meus metros">
-      </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="atualizar()">Salvar</button>
-      <button mat-raised-button color="primary" routerLink="/login">Apagar conta</button>
-    </mat-card-actions>
-  </mat-card>
-  
-  <button (click)="deslogar()">Sair <mat-icon>exit_to_app</mat-icon></button>
-  
-
-<app-footer></app-footer>
+<div>
+    <mat-card class="card-configs">
+        <mat-card-header>
+            <mat-icon class="foto">person</mat-icon>
+            <mat-card-title>Olá, {{usuario.nome}}!</mat-card-title>
+        </mat-card-header>
+        <p class="line"></p>
+        <mat-card-content>
+            <mat-form-field>
+                <mat-label>Nova senha</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <button mat-raised-button class="botao-verde">ALTERAR SENHA</button>
+        </mat-card-content>
+        <p class="line"></p>
+        <mat-card-actions>
+            <button mat-raised-button class="botao-roxo" routerLink="/telaprincipal/metas">GERENCIAR METAS <mat-icon class="icon-button">dns</mat-icon></button>
+            <button mat-raised-button class="botao-roxo">SAIR <mat-icon class="icon-button">exit_to_app</mat-icon></button>
+            <button mat-raised-button class="botao-vermelho">APAGAR CONTA <mat-icon class="icon-button">delete_forever</mat-icon></button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,103 @@
+div {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.card-configs {
+    width: 510px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+}
+
+.foto {
+    background-color: #dfc6f0;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 50%;
+    border: 2px solid #791bb8;
+    margin-left: 20px;
+}
+
+mat-card-header {
+    margin: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    align-items: center;
+    margin-right: 300px;
+}
+
+mat-card-title {
+    margin-left: 30px;
+}
+
+mat-card-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.botao-roxo {
+    margin: 5px;
+    background-color: #791bb8;
+    color: white;
+    width: 235px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.botao-vermelho {
+    margin: 5px;
+    background-color: red;
+    color: white;
+    width: 235px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.botao-verde {
+    margin: 5px;
+    background-color: #00ac73;
+    color: white;
+    width: 170px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.mat-mdc-raised-button>.mat-icon {
+    margin-left: 5px !important;
+    margin-right: 0 !important;
+}
+
+.line {
+    background-color: #9520e4;
+    width: 480px;
+    height: 2.5px;
+    margin: 5px;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+}
+
+mat-form-field {
+    margin-bottom: -22px;
+}

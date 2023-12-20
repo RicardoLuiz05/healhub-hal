@@ -6,7 +6,8 @@ import { MenuComponent } from './menu/menu.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { AppRoutingModule } from '../app-routing.module';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatIconModule} from '@angular/material/icon';
+import { UsuarioModule } from '../usuario/usuario.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     MatMenuModule,
     AppRoutingModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    UsuarioModule
   ],
   exports: [
     HeaderComponent,
