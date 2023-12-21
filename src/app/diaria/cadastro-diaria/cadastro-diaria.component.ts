@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 import { Observable } from 'rxjs';
 import { GuardianUserService } from 'src/app/shared/services/guardian-user.service';
+import { GuardianDayService } from 'src/app/shared/services/guardian-day.service';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class CadastroDiariaComponent implements OnInit {
      private diariaService: DiariaService,
      private rotalAtual: ActivatedRoute,
      private roteador: Router,
-      private guardianUserService: GuardianUserService){
+    private guardianUserService: GuardianUserService,
+    private guardianDayService: GuardianDayService){
     this.diaria = new Diaria();
     this.carregarDiarias();
     if (this.rotalAtual.snapshot.paramMap.has('id')) {
@@ -57,6 +59,8 @@ export class CadastroDiariaComponent implements OnInit {
   
     if (this.diaria.id) {
       operacao = this.diariaService.atualizar(this.diaria);
+      this.guardianDayService.setDiaria(this.diaria);
+
     } else {
     const diariaExistente = this.diarias.find(d => d.dataDia === this.diaria.dataDia);
     
@@ -67,9 +71,8 @@ export class CadastroDiariaComponent implements OnInit {
       });
       return; 
     }
-      console.log(this.diaria);
       operacao = this.diariaService.inserir(this.diaria, this.guardianUserService.getUsuario());
-      console.log(this.diaria);
+      this.guardianDayService.setDiaria(this.diaria);
       
     }
 
