@@ -1,32 +1,31 @@
-// import { Injectable } from '@angular/core';
-// import {
-//   HttpRequest,
-//   HttpHandler,
-//   HttpEvent,
-//   HttpInterceptor,
-//   HttpErrorResponse
-// } from '@angular/common/http';
-// import { Observable, catchError, throwError } from 'rxjs';
-// import { SnackBarComponent } from '../diaria/snack-bar/snack-bar.component';
+import { Injectable } from '@angular/core';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+  HttpErrorResponse
+} from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
-// @Injectable()
-// export class ErrorInterceptor implements HttpInterceptor {
+@Injectable()
+export class ErrorInterceptor implements HttpInterceptor {
 
-//   constructor(private _snackBar: SnackBarComponent) {}
+  constructor(private _snackBar: MatSnackBar) {}
 
-//   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
-//     return next.handle(request).pipe(
-//       catchError(response => this.treatsWrongAnswer(response))
-//     )
-//   }
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
+    return next.handle(request).pipe(
+      catchError(response => this.treatsWrongAnswer(response))
+    );
+  }
 
-//   private treatsWrongAnswer(response: object): Observable<HttpEvent<any>> {
-//     if (response instanceof HttpErrorResponse) {
-//         this._snackBar.openFromComponent(SnackBarComponent, {
-//             data: {mensagem: "oie"},
-//             duration: 5 * 1000
-//         });
-//     }
-//     return throwError(response);
-//   }
-// }
+  private treatsWrongAnswer(response: object): Observable<HttpEvent<any>> {
+    if (response instanceof HttpErrorResponse) {
+      this._snackBar.open('Erro: ' + response.message, 'Fechar', {
+        duration: 5000,
+      });
+    }
+    return throwError(response);
+  }
+}

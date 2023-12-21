@@ -42,7 +42,8 @@ import { MatDialogModule } from '@angular/material/dialog';
   exports:[
     CadastroDiariaComponent,
     ListagemDiariaComponent,
-    InicioComponent
+    InicioComponent,
+    SnackBarComponent
   ],
   imports: [
     BrowserAnimationsModule,
