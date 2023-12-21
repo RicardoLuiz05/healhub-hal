@@ -7,9 +7,9 @@
         <img src="./assets/imgs/agua.jpeg">
         <mat-form-field appearance="outline">
             <mat-label>Quantidade de copos de água</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="usuario.metaDAgua" >
         </mat-form-field>
-        <button mat-raised-button>CADASTRAR</button>
+        <button mat-raised-button (click)="atualizarMeta()">CADASTRAR</button>
     </div>
     <div>
         <h1>CADASTRAR META DE METROS PERCORRIDOS</h1>
@@ -17,9 +17,9 @@
         <img src="./assets/imgs/corrida.jpeg">
         <mat-form-field appearance="outline">
             <mat-label>Quantidade de metros percorridos</mat-label>
-            <input matInput>
+            <input matInput [(ngModel)]="usuario.metros" >
         </mat-form-field>
-        <button mat-raised-button>CADASTRAR</button>
+        <button mat-raised-button (click)="atualizarMetro()">CADASTRAR</button>
     </div>
 </section>
 <app-footer></app-footer>

@@ -22,7 +22,7 @@ export class UsuarioService {
   }
 
   remover(id: string): Observable<object> {
-    const idNumber: number = Number(id); // Use Number para converter a string para um número
+    const idNumber: number = Number(id);
     console.log(idNumber);
     return this.httpClient.delete(`${this.URL}/${idNumber}`).pipe(
       catchError((error) => {
@@ -41,6 +41,7 @@ export class UsuarioService {
   }
 
   atualizar(usuario: Usuario): Observable<Usuario> {
+    console.log(usuario);
     return this.httpClient.put<Usuario>(`${this.URL}/${usuario.id}`, usuario);
   }
 }

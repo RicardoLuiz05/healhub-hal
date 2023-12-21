@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
 
     cadastrar():void {
         let operacao: Observable<any>;
-        console.log(this.usuario)
         operacao = this.usuarioService.inserir(this.usuario);
     
         operacao.subscribe(

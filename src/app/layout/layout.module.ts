@@ -37,7 +37,8 @@ import { MetasComponent } from './metas/metas.component';
     DiariaModule,
     AppRoutingModule,
     FormsModule,
-    DecorationsModule
+    DecorationsModule,
+    
   ],
   exports: [
     LoginComponent,
