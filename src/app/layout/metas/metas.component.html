@@ -1,25 +1,27 @@
 <app-header></app-header>
 <app-menu></app-menu>
 <section>
-    <div>
+    <div class="divTitle">
         <h1>CADASTRAR META DE COPOS DE ÁGUA</h1>
-        <p></p>
-        <img src="./assets/imgs/agua.jpeg">
-        <mat-form-field appearance="outline">
-            <mat-label>Quantidade de copos de água</mat-label>
-            <input matInput [(ngModel)]="metaDAgua" >
-        </mat-form-field>
-        <button mat-raised-button (click)="atualizarMetaDAgua()">CADASTRAR</button>
+        <div class="divMetas">
+            <img src="./assets/imgs/agua.jpeg">
+            <mat-form-field appearance="outline">
+                <mat-label>Quantidade de copos de água</mat-label>
+                <input matInput [(ngModel)]="metaDAgua" >
+            </mat-form-field>
+            <button mat-raised-button (click)="atualizarMetaDAgua()">CADASTRAR</button>
+        </div>
     </div>
-    <div>
+    <div class="divTitle">
         <h1>CADASTRAR META DE METROS PERCORRIDOS</h1>
-        <p></p>
-        <img src="./assets/imgs/corrida.jpeg">
-        <mat-form-field appearance="outline">
-            <mat-label>Quantidade de metros percorridos</mat-label>
-            <input matInput [(ngModel)]="metros" >
-        </mat-form-field>
-        <button mat-raised-button (click)="atualizarMetros()">CADASTRAR</button>
+        <div class="divMetas">
+            <img src="./assets/imgs/corrida.jpeg">
+            <mat-form-field appearance="outline">
+                <mat-label>Quantidade de metros percorridos</mat-label>
+                <input matInput [(ngModel)]="metros" >
+            </mat-form-field>
+            <button mat-raised-button (click)="atualizarMetros()">CADASTRAR</button>
+        </div>
     </div>
 </section>
 <app-footer></app-footer>

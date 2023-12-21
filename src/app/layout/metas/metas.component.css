@@ -6,15 +6,21 @@ section {
     margin-top: 50px;
 }
 
-div {
+.divMetas {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
     background: linear-gradient(0deg, rgba(223,198,240,1) 0%, rgba(194,145,250,1) 30%, rgba(145,250,168,1) 100%);
+    height: 620px;
+    width: 100%;
+}
+
+.divTitle {
+    display: flex;
+    flex-direction: column;
     width: 35%;
-    height: 700px;
 }
 
 img {
@@ -39,11 +45,4 @@ button {
     background-color: #9520e4 !important;
     color: white !important;
     border-radius: 15px;
-}
-
-p {
-    background-color: #9520e4;
-    width: 90%;
-    height: 2.5px;
-    margin-bottom: 40px;
 }
