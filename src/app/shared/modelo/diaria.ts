@@ -8,6 +8,6 @@ export class Diaria {
   coposDAgua: number = 0;
   exercicios: string = '';
   adicional?: string = '';
-  usuario: Usuario = new Usuario('','','',0,0);
+  usuario: Usuario | null = null;
 
 }

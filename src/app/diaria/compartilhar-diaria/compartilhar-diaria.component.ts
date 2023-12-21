@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./compartilhar-diaria.component.css']
 })
 export class CompartilharDiariaComponent {
+
+  compartilhar(){
+    
+  }
 }

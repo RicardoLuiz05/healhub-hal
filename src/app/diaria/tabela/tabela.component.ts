@@ -29,7 +29,7 @@ export class TabelaComponent implements AfterViewInit {
     if (userId) {
       this.diariaService.listar().subscribe(
         data => {
-          const diariasDoUsuario = data.filter(diaria => diaria.usuario.id === userId);
+          const diariasDoUsuario = data.filter(diaria => diaria.usuario?.id === userId);
           this.dataSource.data = diariasDoUsuario;
         },
         error => {
