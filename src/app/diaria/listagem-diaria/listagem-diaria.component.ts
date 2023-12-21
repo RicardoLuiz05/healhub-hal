@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 
 import { CompartilharDiariaComponent } from '../compartilhar-diaria/compartilhar-diaria.component';
+import { GuardianUserService } from 'src/app/shared/services/guardian-user.service';
 
 @Component({
   selector: 'app-listagem-diaria',
@@ -22,13 +23,24 @@ export class ListagemDiariaComponent implements OnInit {
   mensagemSanckBar: string = 'Diária removida com sucesso! 😢💔';
   durationInSeconds: number = 5;
 
-  constructor(private _snackBar: MatSnackBar, private diariaService: DiariaService, private rotaAtual: ActivatedRoute, private roteador: Router, public dialog: MatDialog) {
+
+  constructor(private _snackBar: MatSnackBar,
+     private diariaService: DiariaService,
+      private rotaAtual: ActivatedRoute,
+      private roteador: Router,
+      public dialog: MatDialog,
+      public guardianUserService: GuardianUserService) {
   }
 
   ngOnInit(): void {
+    const userId = this.guardianUserService.getUsuario().id;
+
     this.diariaService.listar().subscribe(
-      diarias => this.diarias = diarias
+      diarias => {
+        this.diarias = diarias.filter(diaria => diaria.usuario.id === userId);
+      }
     );
+
   }
 
   editar(diaria: Diaria): void {

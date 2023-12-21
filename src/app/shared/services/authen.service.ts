@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Usuario } from '../modelo/usuario';
 import { UsuarioService } from './usuario.service';
 import { GuardianUserService } from './guardian-user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,10 @@ import { GuardianUserService } from './guardian-user.service';
 export class AuthenService {
   private isAuthenticated = false;
 
-  constructor(private router: Router, private usuarioService: UsuarioService, private guardianUserService: GuardianUserService) {
+  constructor(private _snackBar: MatSnackBar,
+    private router: Router,
+     private usuarioService: UsuarioService,
+      private guardianUserService: GuardianUserService) {
   }
 
   login(nome: string, senha: string): void {
@@ -23,7 +27,7 @@ export class AuthenService {
           this.isAuthenticated = true;
           this.router.navigate(['/telaprincipal']);
         } else {
-          console.log("Erro nas credenciais");
+          this._snackBar.open('Login inválido', 'Fechar', { duration: 5000 });
         }
       },
       error => {
