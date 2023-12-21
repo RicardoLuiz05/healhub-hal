@@ -18,8 +18,9 @@ export class ConfiguracaoUsuarioComponent {
   hide = true;
   usuario: Usuario;
   durationInSeconds: number = 5;
-  mensagemSnackBar: string = "Metas atualizadas! 😊💜";
+  mensagemSnackBar: string = "Senha atualizada!";
   novaSenha: string = '';
+  operacao: Observable<any>;
 
   constructor(
       private authenService: AuthenService,
@@ -30,6 +31,7 @@ export class ConfiguracaoUsuarioComponent {
       ) {
     this.isVisible = false;
     this.usuario = this.guardianUserService.getUsuario();
+    this.operacao = new Observable<any>();
   }
 
   apagarConta() {
@@ -43,16 +45,20 @@ export class ConfiguracaoUsuarioComponent {
     });
   }
 
-  // atualizarSenha(): void {
-  //   this.usuarioService.atualizarSenha(this.novaSenha, this.usuario).subscribe(
-  //     () => {
-  //       console.log('Senha atualizada com sucesso!');
-  //     },
-  //     error => {
-  //       console.error('Erro ao atualizar senha:', error);
-  //     }
-  //   );
-  // }
+  atualizarSenha(): void {
+    this.usuario.senha = this.novaSenha;
+    this.operacao = this.usuarioService.atualizar(this.usuario);
+
+    this.operacao.subscribe(
+     () => {
+         this._snackBar.openFromComponent(SnackBarComponent, {
+         data: {mensagem: this.mensagemSnackBar},
+         duration: this.durationInSeconds * 1000
+         });
+      }
+    );
+    this.novaSenha = '';
+  }
 
   atualizar(): void{
       let operacao: Observable<any>;
