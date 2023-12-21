@@ -1,12 +1,12 @@
 <div class="menu-background">
+    <button mat-button routerLink="/telaprincipal">
+        <mat-icon>home</mat-icon>
+    </button>
     <button class="titulo" mat-button [matMenuTriggerFor]="menu">Opções</button>
     <mat-menu #menu="matMenu">
         <button routerLink="/telaprincipal/cadastrodiaria" mat-menu-item>Cadastrar meu dia</button>
         <button routerLink="/telaprincipal/listagemdiaria" mat-menu-item>Meu Diário</button>
-        <!-- <button routerLink="/telaprincipal" mat-menu-item>Minhas metas</button> -->
         <button routerLink="/telaprincipal/tabeladiaria" mat-menu-item>Histórico</button>
-        <!-- <button routerLink="/telaprincipal/configuracao" mat-menu-item>Configurações</button> -->
-        
     </mat-menu>
     <button mat-button (click)="toggleVisibility()">
         <mat-icon>account_circle</mat-icon>
