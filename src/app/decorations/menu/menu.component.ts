@@ -9,11 +9,11 @@ import { ConfiguracaoUsuarioComponent } from 'src/app/usuario/configuracao-usuar
 export class MenuComponent {
     @ViewChild(ConfiguracaoUsuarioComponent, { static: false }) configuracaoUsuarioComponent: ConfiguracaoUsuarioComponent | undefined;
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+    constructor(private renderer: Renderer2, private el: ElementRef) {}
 
-  toggleVisibility() {
-    if (this.configuracaoUsuarioComponent) {
-        this.configuracaoUsuarioComponent.toggleVisibility();
-      }
-  }
+    toggleVisibility() {
+        if (this.configuracaoUsuarioComponent) {
+            this.configuracaoUsuarioComponent.toggleVisibility();
+        }
+    }
 }

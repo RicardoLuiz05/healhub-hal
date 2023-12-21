@@ -3,6 +3,7 @@ p {
     font-size: 18px;
     color: rgb(121, 121, 121);
     margin-bottom: 40px;
+    margin-top: -40px;
 }
 
 img {
