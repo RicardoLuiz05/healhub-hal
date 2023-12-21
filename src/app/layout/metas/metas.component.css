@@ -20,7 +20,7 @@ section {
 .divTitle {
     display: flex;
     flex-direction: column;
-    width: 35%;
+    width: 620px;
 }
 
 img {
