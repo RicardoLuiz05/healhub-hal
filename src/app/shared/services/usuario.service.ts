@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../modelo/usuario';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,14 @@ export class UsuarioService {
   }
 
   remover(id: string): Observable<object> {
-    return this.httpClient.delete(`${this.URL}/${id}`);
+    const idNumber: number = Number(id); // Use Number para converter a string para um número
+    console.log(idNumber);
+    return this.httpClient.delete(`${this.URL}/${idNumber}`).pipe(
+      catchError((error) => {
+        console.error('Erro ao remover usuário:', error);
+        throw error; 
+      })
+    );
   }
 
   pesquisarPorId(id: string): Observable<Usuario> {

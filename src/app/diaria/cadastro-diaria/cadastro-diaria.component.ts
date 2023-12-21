@@ -74,7 +74,6 @@ export class CadastroDiariaComponent implements OnInit {
     operacao.subscribe(
       () => {
         this.roteador.navigate(['/telaprincipal/listagemdiaria']);
-        console.log(this.diaria)
         this._snackBar.openFromComponent(SnackBarComponent, {
           data: {mensagem: this.mensagemSnackBar},
           duration: this.durationInSeconds * 1000

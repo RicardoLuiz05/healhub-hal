@@ -24,10 +24,22 @@ export class ConfiguracaoUsuarioComponent {
       private authenService: AuthenService,
       private _snackBar: MatSnackBar,
       private usuarioService: UsuarioService,
-      private guardianUserService: GuardianUserService
+      private guardianUserService: GuardianUserService,
+      private roteador: Router
       ) {
     this.isVisible = false;
     this.usuario = this.guardianUserService.getUsuario();
+  }
+
+  apagarConta() {
+    console.log(this.usuario.id);
+    this.roteador.navigate(['/login']).then(() => {
+      this.usuarioService.remover(this.usuario.id).subscribe(
+        (error) => {
+          console.error('Erro ao remover usuário:', error);
+        }
+      );
+    });
   }
 
 
