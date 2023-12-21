@@ -20,12 +20,13 @@ export class ErrorInterceptor implements HttpInterceptor {
     );
   }
 
-  private treatsWrongAnswer(response: object): Observable<HttpEvent<any>> {
-    if (response instanceof HttpErrorResponse) {
-      this._snackBar.open('Erro: ' + response.message, 'Fechar', {
-        duration: 5000,
-      });
+  private treatsWrongAnswer(response: HttpErrorResponse): Observable<HttpEvent<any>> {
+    if (response.error instanceof ProgressEvent) {
+        this._snackBar.open('Erro de conexão com o servidor', 'Fechar', { duration: 5000 });
+    } else {
+        this._snackBar.open('Erro: ' + response.error, 'Fechar', { duration: 5000 });
     }
     return throwError(response);
-  }
+}
+
 }
