@@ -19,6 +19,7 @@ export class ConfiguracaoUsuarioComponent {
   usuario: Usuario;
   durationInSeconds: number = 5;
   mensagemSnackBar: string = "Metas atualizadas! 😊💜";
+  novaSenha: string = '';
 
   constructor(
       private authenService: AuthenService,
@@ -42,8 +43,16 @@ export class ConfiguracaoUsuarioComponent {
     });
   }
 
-
-  
+  // atualizarSenha(): void {
+  //   this.usuarioService.atualizarSenha(this.novaSenha, this.usuario).subscribe(
+  //     () => {
+  //       console.log('Senha atualizada com sucesso!');
+  //     },
+  //     error => {
+  //       console.error('Erro ao atualizar senha:', error);
+  //     }
+  //   );
+  // }
 
   atualizar(): void{
       let operacao: Observable<any>;
@@ -60,9 +69,7 @@ export class ConfiguracaoUsuarioComponent {
           console.error('Erro ao atualizar usuário:', error);
         }
       );
-
   }
-
 
   deslogar():void {
     this.authenService.logout();

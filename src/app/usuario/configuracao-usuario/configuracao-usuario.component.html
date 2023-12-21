@@ -6,9 +6,9 @@
         </mat-card-header>
         <p class="line"></p>
         <mat-card-content>
-            <mat-form-field>
+            <mat-form-field appearance="outline">
                 <mat-label>Nova senha</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'">
+                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="novaSenha">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
