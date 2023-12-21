@@ -14,7 +14,7 @@ import { UsuarioService } from 'src/app/shared/services/usuario.service';
   styleUrls: ['./configuracao-usuario.component.css']
 })
 export class ConfiguracaoUsuarioComponent {
-  isVisible = true
+  isVisible = false;
   hide = true;
   usuario: Usuario;
   durationInSeconds: number = 5;
@@ -26,9 +26,11 @@ export class ConfiguracaoUsuarioComponent {
       private usuarioService: UsuarioService,
       private guardianUserService: GuardianUserService
       ) {
-
+    this.isVisible = false;
     this.usuario = this.guardianUserService.getUsuario();
   }
+
+
   
 
   atualizar(): void{
@@ -49,7 +51,12 @@ export class ConfiguracaoUsuarioComponent {
 
   }
 
+
   deslogar():void {
     this.authenService.logout();
+  }
+
+  toggleVisibility(): void {
+    this.isVisible = !this.isVisible;
   }
 }
